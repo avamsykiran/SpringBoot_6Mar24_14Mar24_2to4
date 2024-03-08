@@ -1,0 +1,16 @@
+package com.cts.springdemo.views;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
+public class DemoView {
+	
+	@Value("${app.name:UnknownApplication}")
+	private String appName;
+
+	public void run() {
+		System.out.println(appName);
+		System.out.println("----------------------------------------------------------");
+	}
+}

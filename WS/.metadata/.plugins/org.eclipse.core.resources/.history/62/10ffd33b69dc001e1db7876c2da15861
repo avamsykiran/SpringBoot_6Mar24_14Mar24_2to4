@@ -1,0 +1,5 @@
+package com.cts.adb.model;
+
+public class Contact {
+
+}

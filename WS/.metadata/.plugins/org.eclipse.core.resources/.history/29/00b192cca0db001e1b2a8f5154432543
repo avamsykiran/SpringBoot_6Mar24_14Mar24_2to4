@@ -1,0 +1,11 @@
+package com.cts.springdemo.views;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class DemoView {
+
+	public void run() {
+		
+	}
+}

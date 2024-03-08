@@ -1,0 +1,49 @@
+package com.cts.adb.runners;
+
+import java.util.Scanner;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+
+import com.cts.adb.service.ContactService;
+
+@Component
+public class AddressBookRunner implements CommandLineRunner {
+
+	@Autowired
+	private Scanner kbScanner;
+	
+	@Autowired
+	private ContactService contactService;
+	
+	@Override
+	public void run(String... args) throws Exception {
+		String cmd = null;
+		
+		while(!"quit".equalsIgnoreCase(cmd)) {
+			System.out.println("Cmd (add/list/delete/quit)? ");
+			cmd = kbScanner.nextLine().toLowerCase();
+			
+			switch(cmd) {
+			case "add": doAdd(); break;
+			case "delete": doDelete(); break;
+			case "list": doList(); break;
+			case "quit":System.out.println("Application Terminated!! "); break;
+			default: System.out.println("Unknown Command");
+			}
+		}
+	}
+
+	public void doAdd() {
+		
+	}
+	
+	public void doDelete() {
+		
+	}
+	
+	public void doList() {
+		
+	}
+}

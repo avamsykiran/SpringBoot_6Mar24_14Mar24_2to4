@@ -1,0 +1,5 @@
+package com.cts.springdemo.services;
+
+public interface GreetService {
+
+}

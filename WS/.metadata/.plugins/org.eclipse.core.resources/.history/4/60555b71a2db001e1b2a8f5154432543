@@ -1,0 +1,11 @@
+package com.cts.springdemo.services;
+
+public class GreetServiceSimpleImpl implements GreetService {
+
+	@Override
+	public String greetUser(String userName) {
+		String greeting = "Hello ";
+		return greeting + userName;
+	}
+
+}

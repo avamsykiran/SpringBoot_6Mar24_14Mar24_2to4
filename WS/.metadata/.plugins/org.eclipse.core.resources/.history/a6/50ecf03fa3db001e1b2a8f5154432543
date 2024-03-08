@@ -1,0 +1,14 @@
+package com.cts.springdemo.services;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class GreetServiceTimedImpl implements GreetService {
+
+	@Override
+	public String greetUser(String userName) {
+		String greeting = "Hello ";
+		return greeting + userName;
+	}
+
+}
