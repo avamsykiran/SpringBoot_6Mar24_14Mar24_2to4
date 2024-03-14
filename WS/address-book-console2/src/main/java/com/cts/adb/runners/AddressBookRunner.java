@@ -28,13 +28,14 @@ public class AddressBookRunner implements CommandLineRunner {
 		String cmd = null;
 		
 		while(!"quit".equalsIgnoreCase(cmd)) {
-			System.out.println("Cmd (add/list/delete/quit)? ");
+			System.out.println("Cmd (add/list/delete/search/quit)? ");
 			cmd = kbScanner.next().toLowerCase();
 			
 			switch(cmd) {
 			case "add": doAdd(); break;
 			case "delete": doDelete(); break;
 			case "list": doList(); break;
+			case "search": doSearch(); break;
 			case "quit":System.out.println("Application Terminated!! "); break;
 			default: System.out.println("Unknown Command");
 			}
@@ -72,6 +73,19 @@ public class AddressBookRunner implements CommandLineRunner {
 			System.out.println("No contacts recorded as of now");
 		}else {
 			contacts.stream().forEach(System.out::println);
+		}
+	}
+	
+	public void doSearch() {
+		System.out.println("Mobile Number: ");
+		String mobileNumber = kbScanner.next();
+				
+		Contact contact = contactService.getByMobile(mobileNumber);
+		
+		if(contact!=null) {
+			System.out.println(contact);
+		}else {
+			System.out.println("No Such Record");
 		}
 	}
 }

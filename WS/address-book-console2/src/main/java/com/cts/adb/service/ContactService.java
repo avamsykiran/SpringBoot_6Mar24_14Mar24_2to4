@@ -11,4 +11,8 @@ public interface ContactService {
 	Contact getById(int contactId);
 	List<Contact> getAll();
 	
+	default Contact getByMobile(String mmbielNumber) {
+		return null;
+	}
+	
 }

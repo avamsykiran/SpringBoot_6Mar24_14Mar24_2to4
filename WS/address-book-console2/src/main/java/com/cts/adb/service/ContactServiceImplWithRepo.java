@@ -33,5 +33,10 @@ public class ContactServiceImplWithRepo implements ContactService {
 	public List<Contact> getAll() {
 		return contactRepo.findAll();
 	}
-
+	
+	@Override
+	public Contact getByMobile(String mmbielNumber) {
+		return contactRepo.findByMobileNumber(mmbielNumber).orElse(null);
+	}
 }
+
