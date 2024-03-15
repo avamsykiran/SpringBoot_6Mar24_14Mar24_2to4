@@ -8,6 +8,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 @Entity
 @Table(name="contacts")
@@ -16,9 +24,24 @@ public class Contact {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer contactId;
+	
+	@NotNull(message = "Full Name is a mandatory field")
+	@NotBlank(message = "Full Name is a mandatory field")
 	private String fullName;
+	
+	@NotNull(message = "Mobile Number is a mandatory field")
+	@NotBlank(message = "Mobile Number is a mandatory field")
+	@Pattern(regexp = "[1-9][0-9]{9}",message = "Mobile Number is a 10 digit number")
 	private String mobileNumber;
+	
+	@NotNull(message = "Mail Id is a mandatory field")
+	@NotBlank(message = "Mail Id is a mandatory field")
+	@Email(message="Mail Id must be a valid email id.")
 	private String meilId;
+	
+	@NotNull(message = "Date Of Birth is a mandatory field")
+	@Past(message = "You must have born already! Right?")
+	@DateTimeFormat(iso=ISO.DATE)
 	private LocalDate dateOfBith;
 	
 	public Contact() {
